@@ -12,118 +12,91 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="#1e2638"/>
+<meta name="theme-color" content="#ffffff"/>
 
 <!-- Masthead fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Masthead custom styling -->
 <style>
   /* ── Masthead shell ── */
   .masthead {
-    background: #1e2638 !important;
-    border-bottom: none !important;
+    background: var(--global-bg-color) !important;
   }
 
-  /* Gold-gradient hairline at the bottom */
+  /* Single deep-navy accent line at the bottom */
   .masthead::after {
-    height: 1px !important;
-    background: linear-gradient(90deg,
-      transparent 0%,
-      rgba(185, 148, 80, 0.25) 20%,
-      rgba(185, 148, 80, 0.7) 50%,
-      rgba(185, 148, 80, 0.25) 80%,
-      transparent 100%) !important;
+    height: 2px !important;
+    background: #1e2d40 !important;
   }
 
   .masthead__inner-wrap {
-    padding: 0.85em 1.5em !important;
-    font-family: 'Jost', sans-serif !important;
+    padding: 0.7em 1.5em !important;
   }
 
   /* ── Site title "Yupeng He" ── */
   .masthead__menu-item--lg a {
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: 1.45em !important;
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-size: 1.25em !important;
     font-weight: 600 !important;
-    letter-spacing: 0.03em !important;
-    color: #f0ebe0 !important;
-    border-bottom: none !important;
+    letter-spacing: 0.01em !important;
+    text-transform: none !important;
+    color: #1e2d40 !important;
   }
 
   .masthead__menu-item--lg a:hover {
-    color: #f0ebe0 !important;
+    color: #1e2d40 !important;
   }
 
   /* ── Nav links ── */
   .masthead__menu-item a {
-    font-family: 'Jost', sans-serif !important;
-    font-size: 0.72em !important;
-    font-weight: 300 !important;
-    letter-spacing: 0.18em !important;
-    text-transform: uppercase !important;
-    color: rgba(240, 235, 224, 0.6) !important;
-    transition: color 0.2s ease !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.82em !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.02em !important;
+    text-transform: none !important;
+    color: #5a6a7a !important;
     border-bottom: none !important;
+    transition: color 0.2s ease !important;
   }
 
   .masthead__menu-item a:hover {
-    color: #b99450 !important;
+    color: #1e2d40 !important;
   }
 
   /* ── Active page ── */
   .masthead__menu-item.selected a {
-    color: #b99450 !important;
-    font-weight: 400 !important;
-    border-bottom: 1px solid rgba(185, 148, 80, 0.6) !important;
+    color: #1e2d40 !important;
+    font-weight: 500 !important;
+    border-bottom: 2px solid #1e2d40 !important;
     pointer-events: none;
     cursor: default;
   }
 
   .masthead__menu-item.selected a:hover {
-    color: #b99450 !important;
-    border-bottom: 1px solid rgba(185, 148, 80, 0.6) !important;
+    color: #1e2d40 !important;
   }
 
   /* ── Theme toggle icon ── */
   #theme-toggle a {
-    color: rgba(240, 235, 224, 0.35) !important;
+    color: #b0bac4 !important;
     transition: color 0.2s ease !important;
   }
 
   #theme-toggle a:hover {
-    color: #b99450 !important;
-  }
-
-  /* ── Mobile hamburger button ── */
-  .greedy-nav button {
-    background: transparent !important;
-  }
-
-  .navicon,
-  .navicon::before,
-  .navicon::after {
-    background: rgba(240, 235, 224, 0.7) !important;
+    color: #1e2d40 !important;
   }
 
   /* ── Mobile dropdown ── */
   .greedy-nav .hidden-links {
-    background: #1e2638 !important;
-    border: 1px solid rgba(185, 148, 80, 0.2) !important;
+    background: var(--global-bg-color) !important;
+    border: 1px solid #e0e5ea !important;
   }
 
   .hidden-links .masthead__menu-item {
-    background: #1e2638 !important;
-  }
-
-  .hidden-links .masthead__menu-item a {
-    color: rgba(240, 235, 224, 0.6) !important;
-  }
-
-  .hidden-links .masthead__menu-item a:hover {
-    color: #b99450 !important;
+    background: var(--global-bg-color) !important;
   }
 </style>
 
