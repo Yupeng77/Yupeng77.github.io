@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a Ph.D. candidate in Management at <a href="https://www.ie.edu/business-school/" target="_blank" rel="noopener noreferrer">IE Business School, IE University</a> in Madrid, Spain, supervised by <a href="https://www.ie.edu/university/about/faculty/kriti/" target="_blank" rel="noopener noreferrer">Prof. Kriti Jain</a>. My research broadly focuses on **work conflict**, **negotiation**, and **prosocial behavior**.
+I am a Ph.D. candidate in Management at <a href="https://www.ie.edu/business-school/" target="_blank" rel="noopener noreferrer">IE Business School, IE University</a> in Madrid, Spain, supervised by <a href="https://www.ie.edu/university/about/faculty/kriti/" target="_blank" rel="noopener noreferrer">Prof. Kriti Jain</a>. My research focuses on **work conflict**, **negotiation**, and **prosocial behavior**.
 
 ## Research Interests
 
