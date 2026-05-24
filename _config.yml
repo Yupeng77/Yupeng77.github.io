@@ -22,7 +22,7 @@ repository               : "Yupeng77/Yupeng77.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Yupeng He"
   pronouns         : # example: "she/her"
   bio              : "Ph.D. Candidate in Management<br>IE Business School, IE University"
@@ -34,7 +34,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL
-  googlescholar    : # URL - add your Google Scholar profile URL here
+  googlescholar    : "https://scholar.google.com/citations?user=K0j9fYIAAAAJ&hl=en"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : # URL - add your ORCID URL here
