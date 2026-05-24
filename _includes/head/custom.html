@@ -14,10 +14,10 @@
 <link rel="icon" href="/images/favicon.ico"/>
 <meta name="theme-color" content="#ffffff"/>
 
-<!-- Masthead fonts -->
+<!-- Page fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
 <!-- Masthead custom styling -->
 <style>
@@ -97,6 +97,44 @@
 
   .hidden-links .masthead__menu-item {
     background: var(--global-bg-color) !important;
+  }
+</style>
+
+<!-- Page-wide typography -->
+<style>
+  /* ── Body text → Lora ── */
+  body,
+  .page__content,
+  .page__content p,
+  .page__content li,
+  .archive__item-excerpt,
+  .author__bio,
+  .sidebar p,
+  .page__footer {
+    font-family: 'Lora', Georgia, serif !important;
+    font-size: 0.96em;
+    line-height: 1.8;
+  }
+
+  /* ── Page & section headings → Playfair Display ── */
+  h1, h2, h3, h4, h5, h6,
+  .page__title,
+  .archive__item-title,
+  .archive__item-title a {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+  }
+
+  /* ── CV & archive list headings ── */
+  .archive h2 {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 600 !important;
+  }
+
+  /* ── Sidebar name already set; keep Lora for bio ── */
+  .author__name {
+    font-family: 'Playfair Display', Georgia, serif !important;
   }
 </style>
 
