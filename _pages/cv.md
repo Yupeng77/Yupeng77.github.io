@@ -9,56 +9,54 @@ redirect_from:
 
 {% include base_path %}
 
+[Download CV](/files/cv_yupeng_he.docx){: .btn .btn--info}
+
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* **Ph.D. in Management**, IE Business School, IE University, Madrid, Spain (Sep 2023–present)
+  * Supervisor: Prof. Kriti Jain
+* **M.Sc. in Management and International Business**, Aalto University, Espoo, Finland (Sep 2021–Jul 2023)
+* **B.Mgmt. in International Business**, Guangdong University of Foreign Studies, Guangzhou, China (Aug 2016–Jun 2020)
 
-Work experience
+Research Interests
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Work conflict
+* Negotiation
+* Prosocial behavior
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
-
-Publications
+Working Papers
 ======
   <ul>{% for post in site.publications reversed %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
-Talks
+
+Conferences & Workshops
 ======
   <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
+    {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
-  
-Teaching
+
+Research Experience
 ======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
+* **Research Assistant**, IE Business School, IE University, Madrid (Oct 2023–present)
+
+Awards & Scholarships
 ======
-* Currently signed in to 43 different slack teams
+* IE University Scholarship (2023–2027)
+* Aalto University Scholarship (2021–2023)
+
+Academic Service
+======
+* **Reviewer** — IACM (2026), AOM (2026), EURAM (2025 & 2026)
+* **Student Volunteer** — IE Doctoral Consortium, Madrid (2025)
+
+Skills & Methods
+======
+* Quantitative Methods: Experimental design
+* Software: SPSS, R
+
+Languages
+======
+* Chinese — Mandarin & Cantonese (native)
+* English (fluent)
+* Spanish (beginner)
