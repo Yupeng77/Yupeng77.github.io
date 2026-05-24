@@ -32,9 +32,13 @@ Working Papers
 
 Conferences & Workshops
 ======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
+* **IACM Annual Conference**, Vienna, Austria — Jul. 2026
+* **EURAM Annual Conference**, Kristiansand, Norway — Jun. 2026
+* **Madrid Work and Organizations Workshop**, Madrid, Spain — May 2026 *(Attendee)*
+* **AOM Annual Meeting**, Copenhagen, Denmark — Jul. 2025
+* **IE Doctoral Consortium**, Madrid, Spain — Jun. 2025 *(Attendee)*
+* **Madrid Work and Organizations Workshop**, Madrid, Spain — May 2025 *(Attendee)*
+* **Madrid Work and Organizations Workshop**, Madrid, Spain — May 2024 *(Attendee)*
 
 Research Experience
 ======
