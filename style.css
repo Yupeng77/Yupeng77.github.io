@@ -1,10 +1,10 @@
 /* ===== VARIABLES ===== */
 :root {
   --white: #ffffff;
-  --surface: #f8fafc;
   --border: #dde4ef;
   --tag-bg: #e8edf7;
   --accent: #2c5282;
+  --accent-dark: #1a3a6b;
   --body: #3a4a6b;
   --heading: #1a2744;
   --muted: #8898b8;
@@ -33,6 +33,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 nav .logo {
   font-size: 1rem;
@@ -224,7 +225,7 @@ main {
 .btn-download {
   display: inline-block;
   background: var(--accent);
-  color: #fff;
+  color: var(--white);
   text-decoration: none;
   padding: 0.55rem 1.1rem;
   border-radius: 5px;
@@ -233,7 +234,7 @@ main {
   margin-bottom: 2rem;
   transition: background 0.15s;
 }
-.btn-download:hover { background: #1a3a6b; }
+.btn-download:hover { background: var(--accent-dark); }
 
 /* ===== CONTACT SPECIFIC ===== */
 .contact-item {
@@ -257,11 +258,15 @@ main {
 /* ===== FOOTER ===== */
 footer {
   border-top: 1px solid var(--border);
+  padding: 0;
+}
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0;
 }
 .footer-copy { font-size: 0.75rem; color: var(--muted); }
 .footer-email { font-size: 0.75rem; color: var(--accent); text-decoration: none; }
@@ -272,5 +277,6 @@ footer {
   nav { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
   .hero { flex-direction: column; }
   .conf-row { flex-direction: column; gap: 0.1rem; }
-  .conf-meta { color: var(--muted); }
+  .conf-meta { white-space: normal; }
+  .footer-inner { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
 }
