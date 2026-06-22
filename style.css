@@ -9,12 +9,14 @@
   --heading: #1a2744;
   --muted: #8898b8;
   --max-width: 680px;
+  --font-heading: 'Archivo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* ===== RESET ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-body);
   background: var(--white);
   color: var(--body);
   line-height: 1.7;
@@ -36,6 +38,7 @@ nav {
   box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
 nav .logo {
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 800;
   color: var(--heading);
@@ -82,6 +85,7 @@ main {
   flex-shrink: 0;
 }
 .hero-name {
+  font-family: var(--font-heading);
   font-size: 1.9rem;
   font-weight: 800;
   color: var(--heading);
@@ -153,8 +157,9 @@ main {
 }
 .paper:last-child { margin-bottom: 0; }
 .paper-title {
+  font-family: var(--font-heading);
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--heading);
   margin-bottom: 0.2rem;
   line-height: 1.4;
@@ -187,11 +192,12 @@ main {
   margin-bottom: 0.55rem;
   gap: 1rem;
 }
-.conf-name { font-size: 0.85rem; color: var(--heading); font-weight: 500; }
+.conf-name { font-family: var(--font-heading); font-size: 0.85rem; color: var(--heading); font-weight: 700; }
 .conf-meta { font-size: 0.75rem; color: var(--muted); white-space: nowrap; }
 
 /* ===== PAGE TITLE (inner pages) ===== */
 .page-title {
+  font-family: var(--font-heading);
   font-size: 1.6rem;
   font-weight: 800;
   color: var(--heading);
@@ -206,7 +212,7 @@ main {
 .cv-section:last-child { border-bottom: none; }
 .cv-entry { margin-bottom: 1rem; }
 .cv-entry:last-child { margin-bottom: 0; }
-.cv-entry-title { font-size: 0.88rem; font-weight: 600; color: var(--heading); }
+.cv-entry-title { font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--heading); }
 .cv-entry-sub { font-size: 0.82rem; color: var(--body); }
 .cv-entry-meta { font-size: 0.75rem; color: var(--muted); }
 .cv-list { list-style: none; }
