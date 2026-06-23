@@ -164,6 +164,15 @@ main {
   margin-bottom: 0.2rem;
   line-height: 1.4;
 }
+.paper-title a {
+  color: var(--heading);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.paper-title a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
 .paper-meta { font-size: 0.78rem; color: var(--muted); }
 .paper-desc {
   font-size: 0.85rem;
@@ -241,6 +250,91 @@ main {
   transition: background 0.15s;
 }
 .btn-download:hover { background: var(--accent-dark); }
+
+/* ===== BACK LINK ===== */
+.back-link {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  margin-top: 1.5rem;
+}
+.back-link:hover { color: var(--accent); }
+
+/* ===== PAPER BODY (converted PDF content) ===== */
+.paper-body { margin-top: 1.5rem; }
+.paper-body h2 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 2rem 0 0.85rem;
+}
+.paper-body h2:first-child { margin-top: 0; }
+.paper-body p {
+  font-size: 0.85rem;
+  color: var(--body);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.table-caption, .fig-caption {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin: 1.5rem 0 0.75rem;
+}
+.table-wrap { overflow-x: auto; margin-bottom: 0.5rem; }
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+.data-table th, .data-table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+  white-space: nowrap;
+}
+.data-table th {
+  background: var(--tag-bg);
+  color: var(--heading);
+  font-weight: 600;
+}
+.data-table td:first-child { white-space: normal; }
+.table-note {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+.fig-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.fig-grid img {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+@media (max-width: 640px) {
+  .fig-grid { grid-template-columns: repeat(2, 1fr); }
+  .data-table { font-size: 0.72rem; }
+}
+.ref-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ref-list li {
+  font-size: 0.78rem;
+  color: var(--body);
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.ref-list li:last-child { border-bottom: none; }
 
 /* ===== CONTACT SPECIFIC ===== */
 .contact-item {
