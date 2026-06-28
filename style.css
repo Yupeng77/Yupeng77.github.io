@@ -11,6 +11,7 @@
   --max-width: 680px;
   --font-heading: 'Archivo', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* ===== RESET ===== */
@@ -336,55 +337,191 @@ main {
 }
 .ref-list li:last-child { border-bottom: none; }
 
-/* ===== CONFERENCE DETAIL HERO ===== */
-.conf-detail-hero {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--border);
+/* ===== POSTER PAGE (conference-iacm-2026.html) ===== */
+:root {
+  --pg-paper: #fdfcfa;
+  --pg-ink: #1a2744;
+  --pg-ribbon: #b9842c;
+  --pg-ribbon-dark: #8f6420;
 }
-.conf-detail-hero img.conf-avatar {
-  width: 64px;
-  height: 64px;
+
+.poster-card {
+  position: relative;
+  background: var(--pg-paper);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: clamp(1.75rem, 6vw, 2.25rem) clamp(1rem, 4vw, 1.5rem) 1.5rem;
+  margin: 1.75rem 0 1.5rem;
+  box-shadow: 0 1px 2px rgba(26, 39, 68, 0.05);
+}
+
+.poster-ribbon {
+  position: absolute;
+  top: -1px;
+  left: 1.25rem;
+  background: var(--pg-ribbon);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem 0.6rem;
+  border-radius: 0 0 4px 4px;
+  clip-path: polygon(0 0, 100% 0, 100% 78%, 50% 100%, 0 78%);
+  white-space: nowrap;
+}
+
+.poster-identity {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+.poster-avatar {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  box-shadow: 0 0 0 3px var(--pg-paper), 0 0 0 4px var(--border);
 }
-.conf-detail-name {
+.poster-name {
   font-family: var(--font-heading);
   font-weight: 800;
-  font-size: 1.3rem;
-  color: var(--heading);
-  letter-spacing: -0.04em;
-  margin-bottom: 0.2rem;
+  font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+  color: var(--pg-ink);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
 }
-.conf-detail-role, .conf-detail-contact {
+.poster-role {
   font-size: 0.78rem;
   color: var(--muted);
+  margin-top: 0.2rem;
+  line-height: 1.5;
 }
-.conf-detail-presenting {
+.poster-email {
+  display: inline-block;
   font-size: 0.8rem;
-  color: var(--accent);
   font-weight: 600;
+  color: var(--pg-ribbon-dark);
+  text-decoration: none;
   margin-top: 0.4rem;
 }
-.qr-badge {
-  margin-left: auto;
-  text-align: center;
+.poster-email:hover { text-decoration: underline; }
+
+.poster-perf {
+  border-top: 1px dashed var(--border);
+  margin: 1.5rem 0 1.25rem;
+}
+
+.poster-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.poster-meta-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+.poster-meta-value {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--pg-ink);
+}
+.poster-qr {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
   flex-shrink: 0;
 }
-.qr-badge img {
-  width: 64px;
-  height: 64px;
+.poster-qr img {
+  width: 48px;
+  height: 48px;
   border: 1px solid var(--border);
   border-radius: 4px;
 }
-.qr-badge span {
-  display: block;
-  font-size: 0.6rem;
+.poster-qr span {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
   color: var(--muted);
-  margin-top: 0.3rem;
+  max-width: 4.5rem;
+  line-height: 1.35;
+}
+
+.poster-figure { margin: 1.75rem 0; }
+.poster-figure-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.65rem;
+}
+.poster-figure-frame {
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1px dashed var(--border);
+  background: var(--tag-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+.poster-figure-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.poster-paper-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--pg-ribbon-dark);
+  margin-bottom: 0.5rem;
+}
+.poster-paper-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--pg-ink);
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.poster-download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  width: 100%;
+  background: var(--pg-ink);
+  color: var(--white);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 1.25rem;
+  transition: background 0.15s;
+}
+.poster-download:hover { background: var(--pg-ribbon-dark); }
+@media (min-width: 560px) {
+  .poster-download { display: inline-flex; width: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .poster-download, .poster-email { transition: none; }
 }
 
 /* ===== CONTACT SPECIFIC ===== */
@@ -426,10 +563,9 @@ footer {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 520px) {
   nav { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+  nav .links { flex-wrap: wrap; gap: 0.5rem 1.1rem; }
   .hero { flex-direction: column; }
   .conf-row { flex-direction: column; gap: 0.1rem; }
   .conf-meta { white-space: normal; }
   .footer-inner { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-  .conf-detail-hero { flex-direction: column; }
-  .qr-badge { margin-left: 0; }
 }
