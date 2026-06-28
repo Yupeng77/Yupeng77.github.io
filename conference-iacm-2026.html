@@ -7,9 +7,9 @@
   <meta name="description" content="Yupeng He's poster presentation at the IACM Annual Conference 2026, Vienna: Self–Other Miscalibration in Sponsorship Perceptions.">
   <meta property="og:title" content="IACM Annual Conference 2026 — Yupeng He">
   <meta property="og:description" content="Yupeng He's poster presentation at the IACM Annual Conference 2026, Vienna: Self–Other Miscalibration in Sponsorship Perceptions.">
-  <meta property="og:url" content="https://heyupeng.com/conference-iacm-2026.html">
+  <meta property="og:url" content="https://academic.heyupeng.com/conference-iacm-2026.html">
   <meta property="og:type" content="website">
-  <link rel="canonical" href="https://heyupeng.com/conference-iacm-2026.html">
+  <link rel="canonical" href="https://academic.heyupeng.com/conference-iacm-2026.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     <a href="conferences.html" class="back-link">&larr; Back to Conferences</a>
 
     <div class="poster-card">
-      <div class="poster-ribbon">Poster Session &middot; IACM 2026</div>
+      <span class="poster-tag">Poster Session &middot; IACM 2026</span>
 
       <div class="poster-identity">
         <img src="images/profile.jpg" alt="Yupeng He" class="poster-avatar">
@@ -50,10 +50,17 @@
           <span class="poster-meta-label">Presenting at</span>
           <span class="poster-meta-value">IACM Annual Conference 2026 &middot; Vienna, Austria &middot; Jul 2026</span>
         </div>
-        <div class="poster-qr">
-          <img src="images/qr-iacm-2026.png" alt="QR code linking to this page">
-          <span>Scan to share</span>
-        </div>
+      </div>
+
+      <div class="poster-share">
+        <button type="button" class="poster-share-btn" id="poster-copy-link" data-url="https://academic.heyupeng.com/conference-iacm-2026.html">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.5 9.5L9.5 6.5M5 9.5L3.5 11a2.5 2.5 0 003.5 3.5L9 13M11 6.5L12.5 5a2.5 2.5 0 00-3.5-3.5L7.5 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          <span id="poster-copy-link-label">Copy link</span>
+        </button>
+        <a class="poster-share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Facademic.heyupeng.com%2Fconference-iacm-2026.html" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3.4 5.6h2v7h-2v-7zM4.4 4.7a1.15 1.15 0 110-2.3 1.15 1.15 0 010 2.3zM6.6 5.6h1.9v1h.03c.27-.5.93-1.03 1.92-1.03 2.05 0 2.43 1.35 2.43 3.1v3.93h-2v-3.49c0-.83-.02-1.9-1.16-1.9-1.16 0-1.34.91-1.34 1.84v3.55h-2v-7z"/></svg>
+          <span>Share on LinkedIn</span>
+        </a>
       </div>
     </div>
 
@@ -79,5 +86,45 @@
     </div>
   </footer>
 
+  <script>
+    var copyBtn = document.getElementById('poster-copy-link');
+    var copyLabel = document.getElementById('poster-copy-link-label');
+
+    function showCopied() {
+      copyLabel.textContent = 'Link copied';
+      setTimeout(function () { copyLabel.textContent = 'Copy link'; }, 2000);
+    }
+
+    function showCopyFailed() {
+      copyLabel.textContent = 'Copy failed';
+      setTimeout(function () { copyLabel.textContent = 'Copy link'; }, 2000);
+    }
+
+    function fallbackCopy(text) {
+      var input = document.createElement('textarea');
+      input.value = text;
+      input.style.position = 'fixed';
+      input.style.opacity = '0';
+      document.body.appendChild(input);
+      input.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      document.body.removeChild(input);
+      return ok;
+    }
+
+    copyBtn.addEventListener('click', function () {
+      var url = copyBtn.dataset.url;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(showCopied, function () {
+          if (fallbackCopy(url)) showCopied(); else showCopyFailed();
+        });
+      } else if (fallbackCopy(url)) {
+        showCopied();
+      } else {
+        showCopyFailed();
+      }
+    });
+  </script>
 </body>
 </html>
