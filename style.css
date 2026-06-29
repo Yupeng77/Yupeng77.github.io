@@ -396,15 +396,36 @@ main {
   margin-top: 0.2rem;
   line-height: 1.5;
 }
-.poster-email {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--pg-accent-dark);
-  text-decoration: none;
-  margin-top: 0.4rem;
+.poster-contact-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.55rem;
+  flex-wrap: wrap;
 }
-.poster-email:hover { text-decoration: underline; }
+.poster-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--pg-accent-dark);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.65rem;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.poster-contact-btn:hover {
+  border-color: var(--pg-accent);
+  background: var(--tag-bg);
+}
+.poster-contact-btn svg { width: 12px; height: 12px; flex-shrink: 0; }
 
 .poster-perf {
   border-top: 1px dashed var(--border);
@@ -529,7 +550,7 @@ main {
   .poster-download { display: inline-flex; width: auto; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .poster-download, .poster-email { transition: none; }
+  .poster-download, .poster-contact-btn { transition: none; }
 }
 
 /* ===== CONTACT SPECIFIC ===== */
