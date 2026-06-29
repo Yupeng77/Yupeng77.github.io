@@ -511,6 +511,12 @@ main {
   overflow: hidden;
 }
 .poster-figure-frame img { width: 100%; height: 100%; object-fit: cover; }
+.poster-figure-frame[href] {
+  border-style: solid;
+  transition: opacity 0.15s;
+}
+.poster-figure-frame[href]:hover,
+.poster-figure-frame[href]:focus-visible { opacity: 0.85; }
 
 .poster-paper-eyebrow {
   font-family: var(--font-mono);
@@ -552,6 +558,15 @@ main {
 @media (prefers-reduced-motion: reduce) {
   .poster-download, .poster-contact-btn { transition: none; }
 }
+.poster-download-secondary {
+  display: inline-flex;
+  width: auto;
+  background: var(--white);
+  color: var(--pg-ink);
+  border: 1px solid var(--border);
+  margin-top: 0.85rem;
+}
+.poster-download-secondary:hover { background: var(--tag-bg); }
 
 /* ===== CONTACT SPECIFIC ===== */
 .contact-item {
