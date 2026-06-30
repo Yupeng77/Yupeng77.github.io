@@ -662,14 +662,13 @@ main {
 .poster-lb-viewport {
   flex: 1;
   overflow: auto;
-  display: flex;
-  align-items: flex-start;
   padding: 20px;
   background: #141e28;
+  /* block layout — margin:auto on scaler centers when narrow, left-aligns when wide */
 }
 .poster-lb-scaler {
-  flex-shrink: 0;
-  margin: 0 auto; /* centers when narrower than viewport; left-aligns (scrollable) when wider */
+  display: block;
+  margin: 0 auto;
   overflow: hidden;
 }
 .poster-lb-iframe {
