@@ -177,13 +177,20 @@
       function applyZoom(z) {
         zoom = Math.max(0.25, Math.min(z, 2));
         var iframe = document.getElementById('lb-iframe');
-        // Scale the iframe from top-left; size the scaler to match visual dims
-        // so the viewport can center correctly without layout overflow.
         iframe.style.transformOrigin = 'top left';
         iframe.style.transform = 'scale(' + zoom + ')';
-        scaler.style.width  = Math.round(POSTER_W * zoom) + 'px';
-        scaler.style.height = Math.round(POSTER_H * zoom) + 'px';
+        var scaledW = Math.round(POSTER_W * zoom);
+        var scaledH = Math.round(POSTER_H * zoom);
+        scaler.style.width  = scaledW + 'px';
+        scaler.style.height = scaledH + 'px';
         scaler.style.overflow = 'hidden';
+        // Explicitly center when smaller than viewport, left-align when larger.
+        // Never use margin:auto here — browsers split negative remainder equally,
+        // pushing the left side before scroll-origin-0 (unreachable).
+        var available = viewport.clientWidth - 40; // subtract L+R padding
+        var ml = scaledW < available ? Math.round((available - scaledW) / 2) : 0;
+        scaler.style.marginLeft  = ml + 'px';
+        scaler.style.marginRight = '0px';
         zoomVal.textContent = Math.round(zoom * 100) + '%';
       }
 

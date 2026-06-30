@@ -668,7 +668,8 @@ main {
 }
 .poster-lb-scaler {
   display: block;
-  margin: 0 auto;
+  margin-left: 0;
+  margin-right: 0;
   overflow: hidden;
 }
 .poster-lb-iframe {
