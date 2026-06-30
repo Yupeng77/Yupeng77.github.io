@@ -79,10 +79,50 @@
 
     <div class="poster-figure">
       <div class="poster-figure-label">Poster</div>
-      <a href="images/conf-iacm-2026/poster.jpg" target="_blank" rel="noopener noreferrer" class="poster-figure-frame">
-        <img src="images/conf-iacm-2026/poster-thumb.jpg" alt="IACM 2026 poster: Self–Other Miscalibration in Sponsorship Perceptions">
-      </a>
+      <button type="button" class="poster-figure-frame poster-iframe-btn" id="poster-open-btn" aria-label="Click to enlarge poster" title="Click to enlarge">
+        <div class="poster-iframe-thumb-wrap">
+          <iframe src="files/poster_preview.html" class="poster-iframe-thumb" scrolling="no" tabindex="-1" aria-hidden="true" loading="lazy" title="IACM 2026 Poster preview"></iframe>
+        </div>
+        <span class="poster-zoom-hint">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l3.5 3.5"/><path d="M8.5 6v5M6 8.5h5"/></svg>
+          Click to enlarge
+        </span>
+      </button>
       <a href="files/sponsorship_poster.pdf" class="poster-download poster-download-secondary" target="_blank" rel="noopener">Download Poster (PDF) &darr;</a>
+    </div>
+
+    <!-- Poster lightbox -->
+    <div id="poster-lightbox" class="poster-lightbox" role="dialog" aria-modal="true" aria-label="Poster full view" hidden>
+      <div class="poster-lightbox-backdrop" id="poster-lb-backdrop"></div>
+      <div class="poster-lightbox-panel">
+        <div class="poster-lb-toolbar">
+          <span class="poster-lb-title">IACM 2026 Poster</span>
+          <div class="poster-lb-controls">
+            <button type="button" class="poster-lb-btn" id="lb-zoom-out" aria-label="Zoom out" title="Zoom out">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l3.5 3.5"/><path d="M6 8.5h5"/></svg>
+            </button>
+            <span class="poster-lb-zoom-val" id="lb-zoom-val">100%</span>
+            <button type="button" class="poster-lb-btn" id="lb-zoom-in" aria-label="Zoom in" title="Zoom in">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l3.5 3.5"/><path d="M8.5 6v5M6 8.5h5"/></svg>
+            </button>
+            <button type="button" class="poster-lb-btn" id="lb-zoom-reset" aria-label="Reset zoom" title="Reset zoom">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 8a6 6 0 1 1 1 5"/><path d="M4 4v4h4"/></svg>
+            </button>
+            <div class="poster-lb-sep"></div>
+            <a href="files/sponsorship_poster.pdf" class="poster-lb-btn poster-lb-dl" target="_blank" rel="noopener" aria-label="Download PDF" title="Download PDF">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 3v9m0 0l-3-3m3 3l3-3"/><path d="M4 14v1a2 2 0 002 2h8a2 2 0 002-2v-1"/></svg>
+            </a>
+            <button type="button" class="poster-lb-btn poster-lb-close" id="lb-close" aria-label="Close" title="Close (Esc)">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15"/></svg>
+            </button>
+          </div>
+        </div>
+        <div class="poster-lb-viewport" id="lb-viewport">
+          <div class="poster-lb-scaler" id="lb-scaler">
+            <iframe data-src="files/poster_preview.html" class="poster-lb-iframe" id="lb-iframe" title="IACM 2026 Poster" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section">
@@ -103,6 +143,82 @@
   </footer>
 
   <script>
+    /* ---- Poster iframe thumbnail: scale to fit container ---- */
+    (function () {
+      var btn = document.getElementById('poster-open-btn');
+      function setThumbScale() {
+        if (!btn) return;
+        var w = btn.clientWidth;
+        if (!w) return;
+        var scale = w / 1536;
+        btn.style.setProperty('--thumb-scale', scale);
+        btn.querySelector('.poster-iframe-thumb-wrap').style.height = (1152 * scale) + 'px';
+      }
+      requestAnimationFrame(function () { requestAnimationFrame(setThumbScale); });
+      window.addEventListener('load', setThumbScale);
+      window.addEventListener('resize', setThumbScale);
+    })();
+
+    /* ---- Lightbox ---- */
+    (function () {
+      var lb      = document.getElementById('poster-lightbox');
+      var scaler  = document.getElementById('lb-scaler');
+      var zoomVal = document.getElementById('lb-zoom-val');
+      var viewport = document.getElementById('lb-viewport');
+      var POSTER_W = 1536, POSTER_H = 1152;
+      var zoom = 1;
+
+      function fitZoom() {
+        var vw = viewport.clientWidth  - 40;
+        var vh = viewport.clientHeight - 40;
+        return Math.min(vw / POSTER_W, vh / POSTER_H, 1);
+      }
+
+      function applyZoom(z) {
+        zoom = Math.max(0.25, Math.min(z, 2));
+        scaler.style.transform = 'scale(' + zoom + ')';
+        scaler.style.width  = POSTER_W + 'px';
+        scaler.style.height = POSTER_H + 'px';
+        scaler.style.marginBottom = (POSTER_H * (zoom - 1)) + 'px';
+        zoomVal.textContent = Math.round(zoom * 100) + '%';
+      }
+
+      function openLb() {
+        var iframe = document.getElementById('lb-iframe');
+        if (!iframe.src && iframe.dataset.src) iframe.src = iframe.dataset.src;
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        applyZoom(fitZoom());
+        document.getElementById('lb-close').focus();
+      }
+
+      function closeLb() {
+        lb.hidden = true;
+        document.body.style.overflow = '';
+        document.getElementById('poster-open-btn').focus();
+      }
+
+      document.getElementById('poster-open-btn').addEventListener('click', openLb);
+      document.getElementById('lb-close').addEventListener('click', closeLb);
+      document.getElementById('poster-lb-backdrop').addEventListener('click', closeLb);
+      document.getElementById('lb-zoom-in').addEventListener('click', function () { applyZoom(zoom + 0.15); });
+      document.getElementById('lb-zoom-out').addEventListener('click', function () { applyZoom(zoom - 0.15); });
+      document.getElementById('lb-zoom-reset').addEventListener('click', function () { applyZoom(fitZoom()); });
+
+      document.addEventListener('keydown', function (e) {
+        if (lb.hidden) return;
+        if (e.key === 'Escape') closeLb();
+        if (e.key === '+' || e.key === '=') { e.preventDefault(); applyZoom(zoom + 0.15); }
+        if (e.key === '-') { e.preventDefault(); applyZoom(zoom - 0.15); }
+        if (e.key === '0') { e.preventDefault(); applyZoom(fitZoom()); }
+      });
+
+      window.addEventListener('resize', function () {
+        if (!lb.hidden) applyZoom(zoom);
+      });
+    })();
+
+    /* ---- Copy link ---- */
     var copyBtn = document.getElementById('poster-copy-link');
     var copyLabel = document.getElementById('poster-copy-link-label');
 
