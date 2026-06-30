@@ -176,10 +176,14 @@
 
       function applyZoom(z) {
         zoom = Math.max(0.25, Math.min(z, 2));
-        scaler.style.transform = 'scale(' + zoom + ')';
-        scaler.style.width  = POSTER_W + 'px';
-        scaler.style.height = POSTER_H + 'px';
-        scaler.style.marginBottom = (POSTER_H * (zoom - 1)) + 'px';
+        var iframe = document.getElementById('lb-iframe');
+        // Scale the iframe from top-left; size the scaler to match visual dims
+        // so the viewport can center correctly without layout overflow.
+        iframe.style.transformOrigin = 'top left';
+        iframe.style.transform = 'scale(' + zoom + ')';
+        scaler.style.width  = Math.round(POSTER_W * zoom) + 'px';
+        scaler.style.height = Math.round(POSTER_H * zoom) + 'px';
+        scaler.style.overflow = 'hidden';
         zoomVal.textContent = Math.round(zoom * 100) + '%';
       }
 
