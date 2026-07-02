@@ -79,8 +79,8 @@ main {
   align-items: flex-start;
 }
 .hero-avatar {
-  width: 76px;
-  height: 76px;
+  width: 112px;
+  height: 112px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -375,8 +375,8 @@ main {
   align-items: flex-start;
 }
 .poster-avatar {
-  width: 56px;
-  height: 56px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
